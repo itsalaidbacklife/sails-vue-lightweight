@@ -1,0 +1,15 @@
+<div id="home">
+	<h1>New Homepage</h1>
+
+	<div>
+		<p v-for="message in receivedMessages">
+			<strong>{{message.userName}}:</strong>
+			<span>{{message.messageText}}</span>
+		</p>
+	</div>
+
+	<input type="text" name="chat-input" v-model="chatInput" @keyup.enter=submitChat>
+	<div id="Username Widget">
+		Current Username: {{userName}} <button>CHANGE USERNAME</button>
+	</div>
+</div>
