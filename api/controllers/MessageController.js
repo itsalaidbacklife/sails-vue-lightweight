@@ -6,18 +6,9 @@
  */
 
 module.exports = {
-  
-	subscribeAll(req, res) {
 
-	},
-
+	// Blast client message to all sockets
 	newMessage(req, res) {
-		console.log("\nreceived new message");
-		console.log(req.body);
-		console.log(req.body.userName);
-		console.log(req.body.messageText);
-		// if (req.isSocket) {
-		// }
 		sails.sockets.blast('message', {
 			userName: req.body.userName,
 			messageText: req.body.messageText,
