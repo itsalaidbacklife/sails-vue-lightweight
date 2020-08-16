@@ -37,6 +37,7 @@ const app = new Vue({
 			})
 			.then(() => {
 				this.showNameChangeInput = false;
+				this.userName = this.newUserName;
 			})
 			.catch();
 		},
