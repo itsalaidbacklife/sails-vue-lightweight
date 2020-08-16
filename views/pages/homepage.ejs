@@ -1,22 +1,24 @@
 <div id="home">
-	<h1>New Homepage</h1>
+	<div id="top-content">
+		<h1>Global Chatroom</h1>
+		<div id="username-widget">
+			<p v-if="!showNameChangeInput">
+				Current Username: {{userName}} <button @click="openNameChangeInput">CHANGE USERNAME</button>
+			</p>
+			<p v-if="showNameChangeInput">
+				<input type="text" v-model="newUserName" @keyup.enter="submitNameChange">
+				<button @click="cancelNameChange">CANCEL</button>
+				<button @click="submitNameChange">SUBMIT</button>
+			</p>
+		</div>
+	</div>
 
-	<div>
+	<div id="chats">
 		<p v-for="message in receivedMessages">
 			<strong>{{message.userName}}:</strong>
 			<span>{{message.messageText}}</span>
 		</p>
 	</div>
 
-	<input type="text" name="chat-input" v-model="chatInput" @keyup.enter=submitChat>
-	<div id="username-widget">
-		<p v-if="!showNameChangeInput">
-			Current Username: {{userName}} <button @click="openNameChangeInput">CHANGE USERNAME</button>
-		</p>
-		<p v-if="showNameChangeInput">
-			<input type="text" v-model="newUserName" @keyup.enter="submitNameChange">
-			<button @click="cancelNameChange">CANCEL</button>
-			<button @click="submitNameChange">SUBMIT</button>
-		</p>
-	</div>
+	<input type="text" id="chat-input" name="chat-input" v-model="chatInput" @keyup.enter=submitChat>
 </div>
