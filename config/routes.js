@@ -21,6 +21,7 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/submit-chat': 'MessageController.newMessage',
+  '/name-change': 'MessageController.nameChange',
 
 
   /***************************************************************************

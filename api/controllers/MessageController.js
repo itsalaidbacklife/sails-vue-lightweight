@@ -16,5 +16,14 @@ module.exports = {
 		return res.ok();
 	},
 
+	// Blast client's username change
+	nameChange(req, res) {
+		sails.sockets.blast('message', {
+			userName: 'SYSTEM',
+			messageText: `${req.body.oldUserName} has changed their name to ${req.body.newUserName}`
+		});
+		return res.ok();
+	}
+
 };
 
