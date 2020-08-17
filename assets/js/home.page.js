@@ -1,13 +1,14 @@
 const app = new Vue({
 	el: '#home',
+	components: {
+		'user-name-controller': UserNameController
+	},
 	data: () => {
 		return {
 			chatInput: '',
 			receivedMessages: [],
 			userName: 'anonymous',
 			anonymousUserNameOptions: ['cheetah', 'snake', 'mammoth', 'moose', 'jackrabbit', 'hippo', 'dance-master', 'hooligan', 'whippersnapper'],
-			showNameChangeInput: false,
-			newUserName: '',
 		}
 	},
 	methods: {
@@ -24,27 +25,16 @@ const app = new Vue({
 				this.chatInput = '';
 			});
 		},
-		/**
-		 * Changing Username
-		 */
-		openNameChangeInput() {
-			this.showNameChangeInput = true;
-			this.newUserName = this.userName;
-		},
-		submitNameChange() {
+		submitNameChange(newUserName) {
 			axios.post('name-change', {
 				oldUserName: this.userName,
-				newUserName: this.newUserName,
+				newUserName: newUserName,
 			})
 			.then(() => {
 				this.showNameChangeInput = false;
-				this.userName = this.newUserName;
+				this.userName = newUserName;
 			})
 			.catch();
-		},
-		cancelNameChange() {
-			this.newUserName = this.userName;
-			this.showNameChangeInput = false;
 		},
 	},
 	mounted() {

@@ -1,16 +1,7 @@
 <div id="home">
 	<div id="top-content">
 		<h1>Global Chatroom</h1>
-		<div id="username-widget">
-			<p v-if="!showNameChangeInput">
-				Current Username: {{userName}} <button @click="openNameChangeInput">CHANGE USERNAME</button>
-			</p>
-			<p v-if="showNameChangeInput">
-				<input type="text" v-model="newUserName" @keyup.enter="submitNameChange">
-				<button @click="cancelNameChange">CANCEL</button>
-				<button @click="submitNameChange">SUBMIT</button>
-			</p>
-		</div>
+		<user-name-controller :user-name="userName" @submit-name-change="submitNameChange"/>
 	</div>
 
 	<div id="chats">
@@ -21,4 +12,5 @@
 	</div>
 
 	<input type="text" id="chat-input" name="chat-input" v-model="chatInput" @keyup.enter=submitChat>
+
 </div>
