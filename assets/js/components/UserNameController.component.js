@@ -23,7 +23,8 @@ const UserNameController = {
 			this.showNameChangeInput = false;
 		},
 	},
-	template: `
+	template: 
+	`
 		<div id="username-widget">
 			<p v-if="!showNameChangeInput">
 				Current Username: {{userName}} <button @click="openNameChangeInput">CHANGE USERNAME</button>
