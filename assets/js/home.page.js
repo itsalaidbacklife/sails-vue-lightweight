@@ -1,4 +1,4 @@
-const app = new Vue({
+new Vue({
 	el: '#home',
 	components: {
 		'user-name-controller': UserNameController
