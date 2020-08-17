@@ -5,6 +5,7 @@ const app = new Vue({
 			chatInput: '',
 			receivedMessages: [],
 			userName: 'anonymous',
+			anonymousUserNameOptions: ['cheetah', 'snake', 'mammoth', 'moose', 'jackrabbit', 'hippo', 'dance-master', 'hooligan', 'whippersnapper'],
 			showNameChangeInput: false,
 			newUserName: '',
 		}
@@ -47,6 +48,9 @@ const app = new Vue({
 		},
 	},
 	mounted() {
+		// Randomize anonymous username e.g. 'anonymous hippo'
+		const anonymousAnimal = this.anonymousUserNameOptions[Math.floor(Math.random() * this.anonymousUserNameOptions.length)];
+		this.userName = `anonymous ${anonymousAnimal}`;
 		// Subscribe to socket updates
 		io.socket.on('message', (msg) => {
 			this.receivedMessages.push(msg);
