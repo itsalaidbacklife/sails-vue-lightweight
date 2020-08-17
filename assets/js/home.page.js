@@ -1,8 +1,5 @@
 new Vue({
 	el: '#home',
-	components: {
-		'user-name-controller': UserNameController
-	},
 	data: () => {
 		return {
 			chatInput: '',

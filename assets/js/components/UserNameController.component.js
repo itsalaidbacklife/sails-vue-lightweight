@@ -1,5 +1,4 @@
-const UserNameController = {
-	name: 'UserNameController',
+Vue.component('UserNameController', {
 	props: {
 		userName: String,
 	},
@@ -36,4 +35,4 @@ const UserNameController = {
 			</p>
 		</div>
 	`,
-}
+});
