@@ -15,6 +15,7 @@ Boilerplate implementation of a single-room chat web application using sailsjs a
 
 ### Start server
 `sails lift`
+Open browser to localhost:1337
 
 ## Version info
 
