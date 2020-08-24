@@ -1,0 +1,16 @@
+<div id="home">
+	<div id="top-content">
+		<h1>Global Chatroom</h1>
+		<user-name-controller :user-name="userName" @submit-name-change="submitNameChange"/>
+	</div>
+
+	<div id="chats">
+		<p v-for="message in receivedMessages">
+			<strong>{{message.userName}}:</strong>
+			<span>{{message.messageText}}</span>
+		</p>
+	</div>
+
+	<input type="text" id="chat-input" name="chat-input" v-model="chatInput" @keyup.enter=submitChat>
+
+</div>
